@@ -41,10 +41,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  
  @Override
  protected void configure(HttpSecurity http) throws Exception {
- http.authorizeRequests().antMatchers("/showCreate").hasAnyRole("ADMIN","AGENT");
- http.authorizeRequests().antMatchers("/saveProduit").hasAnyRole("ADMIN","AGENT");
+ http.authorizeRequests().antMatchers("/showCreate").hasAnyRole("ADMIN","Agent");
+ http.authorizeRequests().antMatchers("/saveProduit").hasAnyRole("ADMIN","Agent");
  http.authorizeRequests().antMatchers("/ListeProduits")
- .hasAnyRole("ADMIN","AGENT","USER");
+ .hasAnyRole("ADMIN","Agent");
+ http.authorizeRequests().antMatchers("/ListeCat")
+ .hasAnyRole("ADMIN","Agent");
  
  http.authorizeRequests()
  .antMatchers("/supprimerProduit","/modifierProduit","/updateProduit")
